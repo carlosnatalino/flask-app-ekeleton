@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>User profile</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-3"><p class="text-end">User ID</p></div>
+        <div class="col-9"><b>{{ current_user.id }}</b></div>
+    </div>
+    <div class="row">
+        <div class="col-3"><p class="text-end">Name</p></div>
+        <div class="col-9"><b>{{ current_user.name }}</b></div>
+    </div>
+    <div class="row">
+        <div class="col-3"><p class="text-end">Email</p></div>
+        <div class="col-9"><b>{{ current_user.email }}</b></div>
+    </div>
+</div>
+{% endblock content %}

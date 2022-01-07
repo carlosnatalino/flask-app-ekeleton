@@ -1,0 +1,18 @@
+# test and coverage
+flask-testing
+pytest
+coverage
+selenium
+# code quality
+flake8
+requests
+mypy
+pylint
+blinker
+types-requests
+isort
+black
+# accessory
+lorem-text
+bs4
+pep8-naming

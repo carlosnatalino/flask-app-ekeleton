@@ -1,0 +1,50 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python application
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.9"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip pip-tools
+        pip-compile --output-file requirements.txt requirements.in requirements-dev.in
+        pip install -r requirements.txt
+    - name: Lint with flake8
+      run: flake8 .
+    - name: Lint with Pylint
+      run: pylint ./codeapp
+    - name: Lint with Black
+      run: black . --check
+    - name: Validating type hints with mypy
+      run: mypy .
+    - name: Check import sorting with isort
+      run: isort . --check-only --diff
+    - name: Running tests and evaluating code coverage for the unitary tests
+      run: |
+        FLASK_ENV=testing APP_SETTINGS=codeapp.config.TestingConfig python manage.py recreate_db
+        coverage run -m pytest -k 'not functional'
+        coverage report -m --fail-under=100
+    
+    # deploying to heroku
+    # more info: https://github.com/marketplace/actions/deploy-to-heroku
+    # uncomment the following lines to enable uploading to Heroku
+    # - uses: akhileshns/heroku-deploy@v3.12.12
+    #   with:
+    #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+    #     heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
+    #     heroku_email: ${{secrets.HEROKU_EMAIL}}
+    #     dontautocreate: true
