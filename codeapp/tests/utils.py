@@ -17,10 +17,7 @@ from codeapp import create_app as ca
 
 class TestCase(flask_testing.TestCase):
     # the URL below is for the general service
-    # url = "https://validator.w3.org/nu/?out=json"
-
-    # the URL below is for the service deployed at Chalmers
-    url = "http://onu2.s2.chalmers.se:8888/?out=json"
+    url = "https://validator.w3.org/nu/?out=json"
 
     def create_app(self) -> Flask:
         os.environ["FLASK_ENV"] = "testing"

@@ -25,7 +25,7 @@ This project has the following features:
 
 # Table of Contents<!-- omit in toc -->
 
-- [Installation procedures](#installation-procedures)
+- [How to use?](#how-to-use)
   - [Configurations for production](#configurations-for-production)
   - [CI/CD configuration with Heroku](#cicd-configuration-with-heroku)
 - [Useful Commands](#useful-commands)
@@ -43,11 +43,31 @@ This project has the following features:
     - [New details page](#new-details-page)
     - [New form page](#new-form-page)
     - [General form fields](#general-form-fields)
-- [Files that you MUST NOT change](#files-that-you-must-not-change)
+- [Files that you MUST NOT be changed](#files-that-you-must-not-be-changed)
+- [Integration with Heroku](#integration-with-heroku)
 - [Suggestion for improvements](#suggestion-for-improvements)
 - [Contact](#contact)
 
-# Installation procedures
+# How to use?
+
+To use this project as a starting point for your own project, the following steps are recommended.
+
+1. <p style="color:red;">**Do not clone this repository!**</p>
+2. Fork this repository into your own GitHub account
+3. In your forked repository, change appropriate settings, such as:
+4. Change the repository name in the *Options* menu
+5. In the *Actions* menu, choose `Allow all actions`
+6. In the *Secrets* menu, configure
+7. Set the `SECRET_KEY` in the [config file](./codeapp/config.py)
+
+To generate a secret key, you can use the `secrets` module:
+
+```python
+import secrets
+secrets.token_hex(16)
+```
+
+Take the output of this script and use it for the `SECRET_KEY` value.
 
 If you are following the course, please check the *software installation instructions* page on canvas.
 
@@ -236,7 +256,7 @@ Replace `!fieldname!` by the name of the field.
 </div>
 ```
 
-# Files that you MUST NOT change
+# Files that you MUST NOT be changed
 
 There are some files within this project that are not meant for you to change.
 During the project grading, the original files (from the skeleton repository) will be used.
@@ -258,6 +278,10 @@ Some specific files within the `codeapp` folder also MUST NOT be changed:
 - \_ \_init\_ \_.py
 - config.py
 - tests/utils.py
+
+# Integration with Heroku
+
+TBD
 
 # Suggestion for improvements
 

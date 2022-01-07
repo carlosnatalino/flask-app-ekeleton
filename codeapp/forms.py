@@ -19,11 +19,8 @@ from codeapp import db
 from codeapp.models import User
 
 # useful links:
-# always prefer HTML5 fields if an specific one exists
-# WTForms HTML5 fields:
-#       https://wtforms.readthedocs.io/en/2.3.x/fields/#module-wtforms.fields.html5
-# WTForms fields: https://wtforms.readthedocs.io/en/2.3.x/fields/
-# WTForms validators: https://wtforms.readthedocs.io/en/2.3.x/validators/
+# WTForms fields: https://wtforms.readthedocs.io/en/3.0.x/fields/
+# WTForms validators: https://wtforms.readthedocs.io/en/3.0.x/validators/
 
 
 class LoginForm(FlaskForm):

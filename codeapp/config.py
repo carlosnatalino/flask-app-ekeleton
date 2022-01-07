@@ -3,7 +3,7 @@ import os
 
 class BaseConfig:
     TESTING = False
-    SECRET_KEY = ">s&}24@{]]#k3&^5$f3#?6?h3{W@[}/7z}2pa]>{3&5%RP<)[("
+    SECRET_KEY = ""  # TODO: paste here a secret key.
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SESSION_PERMANENT = False
     SESSION_USE_SIGNER = True
